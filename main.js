@@ -53,7 +53,7 @@ server.on('error', (error) => {
   console.error(`Error: ${error}`);
 });
 
-console.log('OSC Server listening on port 8001');
+console.log(`OSC Server listening on port ${RxPort}`);
 
 // Function to send OSC message to QLab
 function sendOscToQLab(address) {
