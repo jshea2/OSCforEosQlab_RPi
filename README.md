@@ -1,11 +1,19 @@
 ## **Use Raspberry Pi as OSC filter for Eos -> QLab Triggering**
 
-A common issue is Eos can only use UDP for sending OSC. So it only sends a single OSC message and packets have been dropped causing cues that don't fire. When a cue is fired Eos sends a bunch of commands at the same time. This script uses redundancy to check for 3 seperate OSC commands to ensure OSC is sent and interpreted to trigger QLab.
+A common issue is using the UDP Eos->QLab is sometimes unrealiable and doesn't fire cues. UDP only sends a single OSC message and packets have been dropped causing cues that do not fire. When a cue is fired from Eos, it sends a bunch of commands at the same time. This script uses redundancy to check for 3 seperate OSC commands to ensure OSC is sent and interpreted to trigger QLab.
 
-Note:
-It will not pass any OSC that starts with `/eos`, with the exception of the OSC that it uses to interpret it for QLab. If the OSC message does not start with `/eos` then it will be sent. This allows you to send OSC Macros for all QLab commands like `/panic`, `/pause` & `/resume`
+This can be used on Mac or PC, but it's the same as using [OSC Router](https://github.com/ETCLabs/OSCRouter/releases) and using all 3 OSC messages. OSC Router config file can be found here
+
+**How it works:**
+
+It will take all OSC in and not pass any OSC that starts with `/eos`, with the exception of the OSC that it uses to interpret it for QLab. 
+
+If the OSC message does not start with `/eos` then it will be sent. This allows you to send OSC Macros for all QLab commands like `/panic`, `/pause` & `/resume`
+
+NOTE: 
+By default this is setup to only work for Cue List 1. This can be modified in main.js
 #
-**Setup Rasperry Pi:**
+**Setup Rasperry Pi 400:**
 
 #
 
